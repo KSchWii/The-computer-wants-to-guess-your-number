@@ -1,0 +1,30 @@
+'''
+Author: Igor "Kiwi" Araújo
+Date: 08/30/2022
+Version Py: 3.10
+'''
+
+import random
+from time import sleep
+
+def resp_pc(x):
+    print('Think of a number from 0 to 10...')
+    min = 1
+    max = x
+    feedback = ''
+    resp = 0
+    sleep(5)
+    while feedback != 'c':
+        if min != max:
+            resp = random.randint(min, max)
+        else:
+            resp = min
+        feedback = input(f'The number {resp} is Correct(c), Higher(h) or Lower(l)? ').lower()
+        if feedback == 'h':
+            max = resp - 1
+        elif feedback == 'l':
+            min = resp + 1
+
+    print(f'Nice! The computer hits the number: {resp}')
+
+resp_pc(10)
